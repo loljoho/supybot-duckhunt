@@ -284,7 +284,7 @@ class DuckHunt(callbacks.Plugin):
         self.throttle[channel] = random.randint(self.minthrottle[channel], self.maxthrottle[channel])
 
 
-    def start(self, irc, msg, args):
+    def starthunt(self, irc, msg, args):
         """
         Starts the hunt
         """
@@ -367,7 +367,7 @@ class DuckHunt(callbacks.Plugin):
                 irc.reply("The hunt starts now!")
         else:
                 irc.error('You have to be on a channel')
-    start = wrap(start)
+    starthunt = wrap(starthunt)
 
 
     def _launchEvent(self, irc, msg):
@@ -381,7 +381,7 @@ class DuckHunt(callbacks.Plugin):
 
 
 
-    def stop(self, irc, msg, args):
+    def stophunt(self, irc, msg, args):
         """
         Stops the current hunt
         """
@@ -401,7 +401,7 @@ class DuckHunt(callbacks.Plugin):
                 irc.reply('Nothing to stop: there\'s no hunt right now.')
         else:
             irc.error('You have to be on a channel')
-    stop = wrap(stop)
+    stophunt = wrap(stophunt)
 
     def fridaymode(self, irc, msg, args, channel, status):
         """
